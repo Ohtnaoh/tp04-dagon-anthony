@@ -1,1 +1,68 @@
-<p>account-client works!</p>
+
+<div class="" style="width: 500px;">
+    <h1>The form</h1>
+    
+    <form class="">
+
+        <div class="group-form">
+            <div class="">
+                <label class="">Name :</label>
+                <input [(ngModel)]="lastname" name="lastname"/>
+            </div>
+            <div class="">
+                <label class="">Firstname :</label>
+                <input [(ngModel)]="firstname" name="firstname"/>
+            </div>
+        </div>
+
+        <div class="group-form">
+            <div class="">
+                <label class="">Address :</label>
+                <input [(ngModel)]="address" name="address"/>
+            </div>
+            <div class="">
+                <label class="">Postal Code :</label>
+                <input [(ngModel)]="postalCode" name="postalCode"/>
+            </div>
+        </div>
+
+        <div class="individual-form">
+            <label class="">Login :</label>
+            <input [(ngModel)]="login" name="login"/>
+        </div>
+
+        <div class="individual-form">
+            <label class="">Email :</label>
+            <input [(ngModel)]="email" name="email"/>
+        </div>
+
+        <div class="individual-form">
+            <label class="">Password :</label>
+            <input [(ngModel)]="password" name="password"/>
+        </div>
+
+        <div class="individual-form">
+            <label class="">Confirm Password :</label>
+            <input [(ngModel)]="confirmPassword" name="confirmPassword"/>
+        </div>
+
+        <div class="individual-form">
+            <label class="">Phone number :</label>
+            <input [(ngModel)]="phoneNumber" name="phoneNumber"/>
+        </div>
+
+        <div class="individual-form">
+            <label class="">Salutation :</label>
+            <select [(ngModel)]="salutation" name="salutation">
+                <option value="Mr">Mr</option>
+                <option value="Mrs">Mrs</option>
+            </select>
+        </div>
+
+        <div class="inputbutton">
+            <button (click)="send()">Send</button>    
+        </div>
+
+        <label class="error">{{error}}</label>
+
+        <app-resultform [user] = "usr" *ngIf="usr!=null"></app-resultform>
