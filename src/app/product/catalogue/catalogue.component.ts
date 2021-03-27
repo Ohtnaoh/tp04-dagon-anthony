@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Store } from '@ngxs/store';
 import { Poisson } from 'src/shared/models/poisson';
 import { ServiceService } from '../service.service';
+import { AddPoisson } from "../../../shared/actions/panier.action";
+
 
 @Component({
   selector: 'app-catalogue',
@@ -16,7 +19,7 @@ export class CatalogueComponent implements OnInit {
 
   @Input() filterPoisson:String;
 
-  constructor(public listPoisson:ServiceService) { } //
+  constructor(public listPoisson:ServiceService, private store:Store) { } //
 
   ngOnInit(): void {
     console.log("catalogue")
@@ -50,4 +53,12 @@ export class CatalogueComponent implements OnInit {
     }
   }
 
+
+  addClick(p:Poisson){
+    this.addProduct(p);
+  }
+
+  private addProduct(p) {
+    this.store.dispatch(new AddPoisson(p));
+  }
 }

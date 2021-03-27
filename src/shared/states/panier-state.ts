@@ -31,8 +31,7 @@ export class PanierState {
             {getState, patchState } :  StateContext<PanierStateModel>, 
             { payload }: DelPoisson) {
             const state = getState();
-            // TODO : Supprimer la référence passée en paramètre
-            patchState({panier : [...state.panier]});
+            patchState({panier: [...(state.panier.filter(p => !(p.reference.match(payload.reference))))]});
     }
 
 }

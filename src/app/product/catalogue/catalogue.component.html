@@ -5,7 +5,8 @@
     <h3>{{x.designation}}</h3>
     <p>Prix unitaire : {{x.prix}} €</p>
     <button [routerLink] = "['/catalogue/poissons/detail/', x.reference]">Détails {{x.reference}}</button>
-    <button>Ajoutez au panier</button>
+
+    <button  (click)="addClick(x)" class="">Ajoutez au panier</button>
     <br>
     <br>
 </div>

@@ -21,6 +21,10 @@ const routes: Routes = [
     loadChildren: () => import('./product/catalogue/catalogue.module').then(m => m.CatalogueModule) 
   },
   {
+    path:'panier',
+    loadChildren: () => import('./panier/panier.module').then(m => m.PanierModule) 
+  },
+  {
     path:'**',
     component:ErrorComponent
   }
