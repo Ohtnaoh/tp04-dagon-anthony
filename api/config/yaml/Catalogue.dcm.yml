@@ -1,0 +1,42 @@
+Catalogue:
+    type: entity
+    table: catalogue
+    id:
+        id:
+            type: bigint
+            nullable: false
+            options:
+                unsigned: true
+            id: true
+            column: ID
+            generator:
+                strategy: IDENTITY
+    fields:
+        ref:
+            type: string
+            nullable: true
+            length: 50
+            options:
+                fixed: false
+            column: REF
+        designation:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: DESIGNATION
+        prix:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+            column: PRIX
+        description:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+            column: DESCRIPTION
+    lifecycleCallbacks: {  }

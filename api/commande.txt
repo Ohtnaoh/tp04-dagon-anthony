@@ -1,0 +1,23 @@
+Creer la BDD avec : 
+
+CREATE TABLE CATALOGUE (
+     ID SERIAL PRIMARY KEY,
+     REF VARCHAR(50),
+     DESIGNATION VARCHAR(255),
+     PRIX FLOAT,
+     DESCRIPTION VARCHAR(255)
+);
+
+INSERT IGNORE INTO `catalogue` (`ID`, `REF`, `DESIGNATION`, `PRIX`, `DESCRIPTION`) VALUES
+	(1, 'A001', 'Combattant', 10.5, 'description A001'),
+	(2, 'A002', 'Poisson rouge', 15.5, 'description A002'),
+	(3, 'A003', 'Guppy', 8, 'description A003'),
+	(4, 'A004', 'Neon', 6, 'description A004');
+
+
+Generer la config:
+
+php vendor/bin/doctrine orm:convert-mapping --namespace="" --force --from-database yml ./config/yaml
+
+Generer les entites (sans annotation)
+php vendor/bin/doctrine orm:generate-entities modeles
