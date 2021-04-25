@@ -1,5 +1,6 @@
 export interface Poisson {
-    reference : string;
+    id? : string;
+    ref? : string;
     designation? : string;
     prix? : number;
     description? : string;

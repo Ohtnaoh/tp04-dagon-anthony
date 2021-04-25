@@ -38,7 +38,7 @@ $options = [
     "algorithm" => ["HS256"],
     "secret" => JWT_SECRET,
     "path" => ["/api"],
-    "ignore" => ["/hello","/api/test","/api/login","/api/createUser", "/api/catalogue"],
+    "ignore" => ["/hello","/api/test","/api/login","/api/createUser"],
     "error" => function ($response, $arguments) {
         $data = array('ERREUR' => 'Connexion', 'ERREUR' => 'JWT Non valide');
         $response = $response->withStatus(401);
@@ -68,7 +68,7 @@ $app->get('/api/user/{id}', function (Request $request, Response $response, $arg
            
     $response = $response
         ->withHeader("Content-Type", "application/json;charset=utf-8");
-          
+    $response = addCorsHeaders($response);
     return $response;
 });
 
@@ -85,6 +85,7 @@ $app->get('/api/user', function (Request $request, Response $response, $args) {
        
         array_push ($data,$u);
     }
+    $response = addCorsHeaders($response);
     $response = $response
     ->withHeader("Content-Type", "application/json;charset=utf-8");
     $response->getBody()->write(json_encode($data));
@@ -109,7 +110,7 @@ $app->put('/api/user', function (Request $request, Response $response, $args) {
     $u->setPostalcode($body['postalcode']);
 
     $entityManager->flush();
-
+    $response = addCorsHeaders($response);
     $response = $response
         ->withHeader("Content-Type", "application/json;charset=utf-8");
 
@@ -118,7 +119,7 @@ $app->put('/api/user', function (Request $request, Response $response, $args) {
 });
 
 // CREATE USER
-$app->post('/api/user', function (Request $request, Response $response, $args) {
+$app->post('/api/createUser', function (Request $request, Response $response, $args) {
     global $entityManager;
     $body = (array)json_decode($request->getBody());
     
@@ -135,6 +136,7 @@ $app->post('/api/user', function (Request $request, Response $response, $args) {
     $entityManager->persist($u);
     $entityManager->flush();
 
+    $response = addCorsHeaders($response);
     $response = $response
         ->withHeader("Content-Type", "application/json;charset=utf-8");
 
@@ -162,6 +164,7 @@ $app->post('/api/login', function (Request $request, Response $response, $args) 
                 'exp' => $expirationTime
             );
             $token_jwt = JWT::encode($payload,JWT_SECRET, "HS256");
+            $response = addCorsHeaders($response);
             $response = $response->withHeader("Authorization", "Bearer {$token_jwt}");
         }else{
             $response = $response->withStatus(302);
@@ -186,9 +189,11 @@ $app->get('/api/catalogue', function (Request $request, Response $response, $arg
     foreach ($catalogue as $e) {
         array_push ($data,$e);
     }
+
     $response = $response
-    ->withHeader("Content-Type", "application/json;charset=utf-8");
+        ->withHeader("Content-Type", "application/json;charset=utf-8");
     $response->getBody()->write(json_encode($data));
+    $response = addCorsHeaders($response);
     return $response;
 });
 
@@ -198,11 +203,13 @@ $app->get('/api/catalogue/{id}', function (Request $request, Response $response,
     $body = (array)json_decode($request->getBody());
     $c = $entityManager->find(Catalogue::class, $args['id']);
 
+
+    
     $response->getBody()->write(json_encode($c));
        
     $response = $response
         ->withHeader("Content-Type", "application/json;charset=utf-8");
-            
+    $response = addCorsHeaders($response);      
     return $response;
 });
 
@@ -210,6 +217,7 @@ $app->get('/api/catalogue/{id}', function (Request $request, Response $response,
 $app->get('/api/test/{test}', function (Request $request, Response $response, $args) {
     $array = [];
     $array ["test"] = $args['test'];
+    $response = addCorsHeaders($response);
     $response->getBody()->write(json_encode ($array));
     return $response;
 });

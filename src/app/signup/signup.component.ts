@@ -1,13 +1,17 @@
+import { ThisReceiver } from '@angular/compiler';
 import { Component, OnInit } from '@angular/core';
-import { Person } from '../../shared/models/person'
+import { UrlSegment } from '@angular/router';
+import { Person } from 'src/shared/models/person';
+import { SignupService } from './signup.service';
 
 @Component({
-  selector: 'app-account-client',
-  templateUrl: './account-client.component.html',
-  styleUrls: ['./account-client.component.css']
+  selector: 'app-signup',
+  templateUrl: './signup.component.html',
+  styleUrls: ['./signup.component.css']
 })
-export class AccountClientComponent implements OnInit {
+export class SignupComponent implements OnInit {
 
+  constructor(private signupService: SignupService) { }
   allComplete:boolean=true;
 
   usr:Person=null;
@@ -23,8 +27,6 @@ export class AccountClientComponent implements OnInit {
   salutation:string="";
   error: string="";
   berror: boolean=false;
-
-  constructor() { }
 
   ngOnInit(): void {
   }
@@ -75,6 +77,12 @@ export class AccountClientComponent implements OnInit {
 
     if(this.berror==false){
       this.usr = new Person("",this.lastname, this.firstname, this.address, this.postalCode, this.login, this.email, this.password, this.phoneNumber, this.salutation);
+    
+      this.signupService.create(this.usr).subscribe (flux => console.log (flux));
+      this.error = "Your account has been created, please log in now ! ";
+      
     }
   }
+
+
 }

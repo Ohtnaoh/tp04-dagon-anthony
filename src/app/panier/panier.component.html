@@ -1,11 +1,15 @@
-<h1>Panier ({{numberArticle}}) Prix total : {{totalPrice}} €</h1>
+<h1>Panier ({{numberArticle}}) Prix total : {{totalPrice}} €</h1> <button *ngIf="!isEmpty">Payer</button>
 <div *ngFor="let i of contentPanier | async">
     <div >
-        <h3> Désignation : {{i.designation}} - ({{i.reference}})</h3>
+        <h3> Désignation : {{i.designation}} - ({{i.ref}})</h3>
         <p>Prix : {{i.prix}} €</p>
         <p>Desciption : {{i.description}}</p>
         <button (click)="delClick(i)">Supprimer du panier</button>
     </div>
 </div>
+<br/>
+<br/>
+<br/>
+<br/>
 <div *ngIf="isEmpty">Le panier est vide</div>
 

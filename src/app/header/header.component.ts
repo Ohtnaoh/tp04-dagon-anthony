@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Store } from '@ngxs/store';
+import { ApiHttpInterceptor } from '../api-http.interceptor';
 
 @Component({
   selector: 'app-header',
@@ -8,12 +9,13 @@ import { Store } from '@ngxs/store';
 })
 export class HeaderComponent implements OnInit {
   nbElementPanier : number;
-
-  constructor(private store:Store) { 
-  }
+  connect: boolean;
+  constructor(private store:Store, private ht : ApiHttpInterceptor ){ }
 
   ngOnInit(): void {
     this.store.select(state => state.panier.panier).subscribe(i=> this.nbElementPanier = i.length);
+    
+
   }
 
 }

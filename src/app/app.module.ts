@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { ErrorComponent } from './error/error.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { HeaderComponent } from './header/header.component';
 import { NgxsModule } from '@ngxs/store';
 import { PanierState } from '../shared/states/panier-state';
@@ -13,6 +13,9 @@ import { CatalogueComponent } from './product/catalogue/catalogue.component';
 import { DetailComponent } from './product/detail/detail.component';
 import { FilterComponent } from './product/filter/filter.component'
 import { FormsModule } from '@angular/forms';
+import { ApiHttpInterceptor } from './api-http.interceptor';
+import { LoginComponent } from './login/login.component';
+import { SignupComponent } from './signup/signup.component';
 
 
 @NgModule({
@@ -23,7 +26,10 @@ import { FormsModule } from '@angular/forms';
     HeaderComponent,
     CatalogueComponent,
     DetailComponent,
-    FilterComponent
+    FilterComponent,
+    LoginComponent,
+    SignupComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -32,7 +38,9 @@ import { FormsModule } from '@angular/forms';
     FormsModule,
     NgxsModule.forRoot ([PanierState])
   ],
-  providers: [],
+  providers: [
+    {provide: HTTP_INTERCEPTORS, useClass: ApiHttpInterceptor, multi: true}
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

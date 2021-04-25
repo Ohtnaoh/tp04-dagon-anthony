@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from "rxjs";
-import { environment } from '../../environments/environment'
 import { Poisson } from '../../shared/models/poisson';
+import { Person } from 'src/shared/models/person';
 
 @Injectable({
   providedIn: 'root'
 })
-export class ServiceService {
+export class SignupService {
   private urlGetAll = "http://localhost/api/catalogue";
 
   constructor(private http: HttpClient) { }
@@ -32,5 +32,23 @@ export class ServiceService {
     }));*/
     console.log(result);
     return result;
+  }
+
+  create(usr:Person) : Observable<Person>{
+    let httpOptions = {
+      headers :  new HttpHeaders ({
+        'Content-Type':'application/json'})};
+    return this.http.post<Person>("http://localhost/api/createUser",
+    {
+      "salutation":usr.salutation,
+      "firstname":usr.firstname,
+      "lastname":usr.lastname,
+      "login":usr.login,
+      "email":usr.email,
+      "telephone":usr.phoneNumber,
+      "password":usr.password,
+      "adresse":usr.address,
+      "postalcode":usr.postalCode
+    }, httpOptions);
   }
 }

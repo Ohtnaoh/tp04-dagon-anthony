@@ -31,7 +31,7 @@ export class PanierState {
             {getState, patchState } :  StateContext<PanierStateModel>, 
             { payload }: DelPoisson) {
             const state = getState();
-            patchState({panier: [...(state.panier.filter(p => !(p.reference.match(payload.reference))))]});
+            patchState({panier: [...(state.panier.filter(p => !(p.ref.match(payload.ref))))]});
     }
 
 }

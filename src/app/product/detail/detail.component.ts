@@ -15,7 +15,7 @@ export class DetailComponent implements OnInit {
   constructor(private route: ActivatedRoute, public service:ServiceService, public store:Store) { 
     this.ref = this.route.snapshot.paramMap.get('ref');
     this.service.getAll().subscribe(e => {
-      this.poisson = e.find(i => i.reference === this.ref);
+      this.poisson = e.find(i => i.ref === this.ref);
     })
   }
 
