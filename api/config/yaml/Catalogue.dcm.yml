@@ -3,40 +3,35 @@ Catalogue:
     table: catalogue
     id:
         id:
-            type: bigint
+            type: integer
             nullable: false
             options:
-                unsigned: true
+                unsigned: false
             id: true
-            column: ID
             generator:
-                strategy: IDENTITY
+                strategy: SEQUENCE
     fields:
         ref:
             type: string
-            nullable: true
+            nullable: false
             length: 50
             options:
                 fixed: false
-            column: REF
         designation:
             type: string
-            nullable: true
+            nullable: false
             length: 255
             options:
                 fixed: false
-            column: DESIGNATION
         prix:
             type: float
-            nullable: true
+            nullable: false
             precision: 10
             scale: 0
-            column: PRIX
         description:
             type: string
-            nullable: true
+            nullable: false
             length: 255
             options:
                 fixed: false
-            column: DESCRIPTION
     lifecycleCallbacks: {  }

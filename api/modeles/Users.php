@@ -1,7 +1,12 @@
 <?php
+
+
+
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Users
+ *
  * @ORM\Table(name="users")
  * @ORM\Entity
  */
@@ -9,74 +14,74 @@ class Users
 {
     /**
      * @var int
-     * 
+     *
      * @ORM\Column(name="id", type="integer")
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="SEQUENCE")
-     * @ORM\SequenceGenerator(sequenceName="user_id_seq", allocationSize=1, initialValue=1)
+     * @ORM\SequenceGenerator(sequenceName="users_id_seq", allocationSize=1, initialValue=1)
      */
     public $id;
 
     /**
-     * @var string|null
-     * 
-     * @ORM\Column(name="salutation", type="string", length=240, nullable=true)
+     * @var string
+     *
+     * @ORM\Column(name="salutation", type="string", length=4, nullable=false)
      */
     public $salutation;
 
     /**
-     * @var string|null
-     * 
-     * @ORM\Column(name="firstname", type="string", length=420, nullable=true)
+     * @var string
+     *
+     * @ORM\Column(name="firstname", type="string", length=255, nullable=false)
      */
     public $firstname;
 
     /**
-     * @var string|null
-     * 
-     * @ORM\Column(name="lastname", type="string", length=240, nullable=true)
+     * @var string
+     *
+     * @ORM\Column(name="lastname", type="string", length=255, nullable=false)
      */
     public $lastname;
 
     /**
-     * @var string|null
-     * 
-     * @ORM\Column(name="login", type="string", length=240, nullable=true)
+     * @var string
+     *
+     * @ORM\Column(name="login", type="string", length=255, nullable=false)
      */
     public $login;
 
     /**
-     * @var string|null
-     * 
-     * @ORM\Column(name="email", type="string", length=240, nullable=true)
+     * @var string
+     *
+     * @ORM\Column(name="email", type="string", length=255, nullable=false)
      */
     public $email;
 
     /**
-     * @var string|null
-     * 
-     * @ORM\Column(name="telephone", type="string", length=240, nullable=true)
+     * @var string
+     *
+     * @ORM\Column(name="telephone", type="string", length=255, nullable=false)
      */
     public $telephone;
 
     /**
-     * @var string|null
-     * 
-     * @ORM\Column(name="password", type="string", length=240, nullable=true)
+     * @var string
+     *
+     * @ORM\Column(name="password", type="string", length=255, nullable=false)
      */
     public $password;
 
     /**
-     * @var string|null
-     * 
-     * @ORM\Column(name="adresse", type="string", length=240, nullable=true)
+     * @var string
+     *
+     * @ORM\Column(name="adresse", type="string", length=255, nullable=false)
      */
     public $adresse;
 
     /**
-     * @var string|null
-     * 
-     * @ORM\Column(name="postalcode", type="string", length=240, nullable=true)
+     * @var string
+     *
+     * @ORM\Column(name="postalcode", type="string", length=255, nullable=false)
      */
     public $postalcode;
 
@@ -94,11 +99,11 @@ class Users
     /**
      * Set salutation.
      *
-     * @param string|null $salutation
+     * @param string $salutation
      *
-     * @return User
+     * @return Users
      */
-    public function setSalutation($salutation = null)
+    public function setSalutation($salutation)
     {
         $this->salutation = $salutation;
 
@@ -108,7 +113,7 @@ class Users
     /**
      * Get salutation.
      *
-     * @return string|null
+     * @return string
      */
     public function getSalutation()
     {
@@ -118,11 +123,11 @@ class Users
     /**
      * Set firstname.
      *
-     * @param string|null $firstname
+     * @param string $firstname
      *
-     * @return User
+     * @return Users
      */
-    public function setFirstname($firstname = null)
+    public function setFirstname($firstname)
     {
         $this->firstname = $firstname;
 
@@ -132,7 +137,7 @@ class Users
     /**
      * Get firstname.
      *
-     * @return string|null
+     * @return string
      */
     public function getFirstname()
     {
@@ -142,11 +147,11 @@ class Users
     /**
      * Set lastname.
      *
-     * @param string|null $lastname
+     * @param string $lastname
      *
-     * @return User
+     * @return Users
      */
-    public function setLastname($lastname = null)
+    public function setLastname($lastname)
     {
         $this->lastname = $lastname;
 
@@ -156,7 +161,7 @@ class Users
     /**
      * Get lastname.
      *
-     * @return string|null
+     * @return string
      */
     public function getLastname()
     {
@@ -166,11 +171,11 @@ class Users
     /**
      * Set login.
      *
-     * @param string|null $login
+     * @param string $login
      *
-     * @return User
+     * @return Users
      */
-    public function setLogin($login = null)
+    public function setLogin($login)
     {
         $this->login = $login;
 
@@ -180,7 +185,7 @@ class Users
     /**
      * Get login.
      *
-     * @return string|null
+     * @return string
      */
     public function getLogin()
     {
@@ -190,11 +195,11 @@ class Users
     /**
      * Set email.
      *
-     * @param string|null $email
+     * @param string $email
      *
-     * @return User
+     * @return Users
      */
-    public function setEmail($email = null)
+    public function setEmail($email)
     {
         $this->email = $email;
 
@@ -204,7 +209,7 @@ class Users
     /**
      * Get email.
      *
-     * @return string|null
+     * @return string
      */
     public function getEmail()
     {
@@ -214,11 +219,11 @@ class Users
     /**
      * Set telephone.
      *
-     * @param string|null $telephone
+     * @param string $telephone
      *
-     * @return User
+     * @return Users
      */
-    public function setTelephone($telephone = null)
+    public function setTelephone($telephone)
     {
         $this->telephone = $telephone;
 
@@ -228,7 +233,7 @@ class Users
     /**
      * Get telephone.
      *
-     * @return string|null
+     * @return string
      */
     public function getTelephone()
     {
@@ -238,11 +243,11 @@ class Users
     /**
      * Set password.
      *
-     * @param string|null $password
+     * @param string $password
      *
-     * @return User
+     * @return Users
      */
-    public function setPassword($password = null)
+    public function setPassword($password)
     {
         $this->password = $password;
 
@@ -252,7 +257,7 @@ class Users
     /**
      * Get password.
      *
-     * @return string|null
+     * @return string
      */
     public function getPassword()
     {
@@ -262,11 +267,11 @@ class Users
     /**
      * Set adresse.
      *
-     * @param string|null $adresse
+     * @param string $adresse
      *
-     * @return User
+     * @return Users
      */
-    public function setAdresse($adresse = null)
+    public function setAdresse($adresse)
     {
         $this->adresse = $adresse;
 
@@ -276,7 +281,7 @@ class Users
     /**
      * Get adresse.
      *
-     * @return string|null
+     * @return string
      */
     public function getAdresse()
     {
@@ -286,11 +291,11 @@ class Users
     /**
      * Set postalcode.
      *
-     * @param string|null $postalcode
+     * @param string $postalcode
      *
-     * @return User
+     * @return Users
      */
-    public function setPostalcode($postalcode = null)
+    public function setPostalcode($postalcode)
     {
         $this->postalcode = $postalcode;
 
@@ -300,7 +305,7 @@ class Users
     /**
      * Get postalcode.
      *
-     * @return string|null
+     * @return string
      */
     public function getPostalcode()
     {

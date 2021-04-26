@@ -1,78 +1,68 @@
-User:
+Users:
     type: entity
     table: users
     id:
         id:
-            type: bigint
+            type: integer
             nullable: false
             options:
-                unsigned: true
+                unsigned: false
             id: true
-            column: ID
             generator:
-                strategy: IDENTITY
+                strategy: SEQUENCE
     fields:
         salutation:
             type: string
-            nullable: true
-            length: 255
+            nullable: false
+            length: 4
             options:
                 fixed: false
-            column: SALUTATION
         firstname:
             type: string
-            nullable: true
+            nullable: false
             length: 255
             options:
                 fixed: false
-            column: FIRSTNAME
         lastname:
             type: string
-            nullable: true
+            nullable: false
             length: 255
             options:
                 fixed: false
-            column: LASTNAME
         login:
             type: string
-            nullable: true
-            length: 50
+            nullable: false
+            length: 255
             options:
                 fixed: false
-            column: LOGIN
         email:
             type: string
-            nullable: true
+            nullable: false
             length: 255
             options:
                 fixed: false
-            column: EMAIL
         telephone:
             type: string
-            nullable: true
+            nullable: false
             length: 255
             options:
                 fixed: false
-            column: TELEPHONE
         password:
             type: string
-            nullable: true
+            nullable: false
             length: 255
             options:
                 fixed: false
-            column: PASSWORD
         adresse:
             type: string
-            nullable: true
+            nullable: false
             length: 255
             options:
                 fixed: false
-            column: ADRESSE
         postalcode:
             type: string
-            nullable: true
+            nullable: false
             length: 255
             options:
                 fixed: false
-            column: POSTALCODE
     lifecycleCallbacks: {  }

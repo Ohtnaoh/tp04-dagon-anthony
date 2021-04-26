@@ -1,7 +1,12 @@
 <?php
+
+
+
 use Doctrine\ORM\Mapping as ORM;
+
 /**
  * Catalogue
+ *
  * @ORM\Table(name="catalogue")
  * @ORM\Entity
  */
@@ -18,30 +23,30 @@ class Catalogue
     public $id;
 
     /**
-     * @var string|null
+     * @var string
      *
-     * @ORM\Column(name="ref", type="string", length=50, nullable=true)
+     * @ORM\Column(name="ref", type="string", length=50, nullable=false)
      */
     public $ref;
 
     /**
-     * @var string|null
+     * @var string
      *
-     * @ORM\Column(name="designation", type="string", length=255, nullable=true)
+     * @ORM\Column(name="designation", type="string", length=255, nullable=false)
      */
     public $designation;
 
     /**
-     * @var float|null
+     * @var float
      *
-     * @ORM\Column(name="prix", type="float", precision=10, scale=0, nullable=true)
+     * @ORM\Column(name="prix", type="float", precision=10, scale=0, nullable=false)
      */
     public $prix;
 
     /**
-     * @var string|null
-     * 
-     * @ORM\Column(name="description", type="float", precision=10, scale=0, nullable=true)
+     * @var string
+     *
+     * @ORM\Column(name="description", type="string", length=255, nullable=false)
      */
     public $description;
 
@@ -59,11 +64,11 @@ class Catalogue
     /**
      * Set ref.
      *
-     * @param string|null $ref
+     * @param string $ref
      *
      * @return Catalogue
      */
-    public function setRef($ref = null)
+    public function setRef($ref)
     {
         $this->ref = $ref;
 
@@ -73,7 +78,7 @@ class Catalogue
     /**
      * Get ref.
      *
-     * @return string|null
+     * @return string
      */
     public function getRef()
     {
@@ -83,11 +88,11 @@ class Catalogue
     /**
      * Set designation.
      *
-     * @param string|null $designation
+     * @param string $designation
      *
      * @return Catalogue
      */
-    public function setDesignation($designation = null)
+    public function setDesignation($designation)
     {
         $this->designation = $designation;
 
@@ -97,7 +102,7 @@ class Catalogue
     /**
      * Get designation.
      *
-     * @return string|null
+     * @return string
      */
     public function getDesignation()
     {
@@ -107,11 +112,11 @@ class Catalogue
     /**
      * Set prix.
      *
-     * @param float|null $prix
+     * @param float $prix
      *
      * @return Catalogue
      */
-    public function setPrix($prix = null)
+    public function setPrix($prix)
     {
         $this->prix = $prix;
 
@@ -121,7 +126,7 @@ class Catalogue
     /**
      * Get prix.
      *
-     * @return float|null
+     * @return float
      */
     public function getPrix()
     {
@@ -131,11 +136,11 @@ class Catalogue
     /**
      * Set description.
      *
-     * @param string|null $description
+     * @param string $description
      *
      * @return Catalogue
      */
-    public function setDescription($description = null)
+    public function setDescription($description)
     {
         $this->description = $description;
 
@@ -145,7 +150,7 @@ class Catalogue
     /**
      * Get description.
      *
-     * @return string|null
+     * @return string
      */
     public function getDescription()
     {
