@@ -6,7 +6,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
   providedIn: 'root'
 })
 export class LoginService {
-  private urlLogin = "http://localhost/api/login";
+  private urlLogin = "https://cnam-dagon-projet.herokuapp.com/api/login";
   constructor(private httpClient : HttpClient ) { }
 
   public login(login : string, password : string) :   Observable<any> {

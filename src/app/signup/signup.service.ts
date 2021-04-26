@@ -38,7 +38,7 @@ export class SignupService {
     let httpOptions = {
       headers :  new HttpHeaders ({
         'Content-Type':'application/json'})};
-    return this.http.post<Person>("http://localhost/api/createUser",
+    return this.http.post<Person>("https://cnam-dagon-projet.herokuapp.com/api/createUser",
     {
       "salutation":usr.salutation,
       "firstname":usr.firstname,

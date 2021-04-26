@@ -8,12 +8,15 @@ CREATE TABLE CATALOGUE (
      DESCRIPTION VARCHAR(255)
 );
 
-INSERT IGNORE INTO `catalogue` (`ID`, `REF`, `DESIGNATION`, `PRIX`, `DESCRIPTION`) VALUES
-	(1, 'A001', 'Combattant', 10.5, 'description A001'),
-	(2, 'A002', 'Poisson rouge', 15.5, 'description A002'),
-	(3, 'A003', 'Guppy', 8, 'description A003'),
-	(4, 'A004', 'Neon', 6, 'description A004');
-
+INSERT INTO `catalogue` (`ID`, `REF`, `DESIGNATION`, `PRIX`, `DESCRIPTION`) VALUES
+	(1, 'A001', 'Combattant', 10.5, 'Le Betta splendens mâle est un poisson territorial et solitaire. Pas question de le faire vivre avec d’autres congénères masculins : ils risqueraient de se battre jusqu’à la mort. Le combattant pourra néanmoins cohabiter avec d’autres espèces de poissons, sous réserve qu’elles ne lui ressemblent pas du tout (et si le volume de l’aquarium le permet bien évidemment).'),
+	(2, 'A002', 'Poisson rouge', 15.5, 'Un poisson rouge (Carassius Auratus) est une espèce de poisson d’eau douce de la famille des Cyprinidés, famille qui regroupe la grande majorité des poissons d’eau douce. Le poisson ronge est un animal omnivore absolument pas difficile, puisqu’il n’hésite pas à dévorer tout ce qui lui tombe sous la nageoire, ou presque, d’où sa réputation de "poisson poubelle".'),
+	(3, 'A003', 'Guppy', 8, 'Le Guppy de son nom scientifique Poecilia Reticulata, est une espèce de la famille des poeciliidae. Il est à la base originaire des rivières d’Amérique du Sud et des Caraïbes et a été découvert en 1859. On le retrouve aujourd’hui dans beaucoup de pays à travers le monde, y compris en Afrique et en Asie. Depuis de nombreuses années, le guppy est l’un des poissons les plus populaire en aquariophilie.'),
+	(4, 'A004', 'Neon', 6, 'Les néons sont des petits poissons d'eau douce et chaude, originaires du bassin amazonien, appréciés en aquarium pour leurs couleurs vives. Ce sont des poissons grégaires, qui vivent en bancs. Ils sont vifs (leur nage est rapide) mais paisibles : ils cohabitent facilement avec d'autres poissons.'),
+	(5, 'A005', 'Loche-clown', 32, 'Le Loche-clown est un poisson pouvant atteindre 30cm adulte. C'est un poisson de fond très actif qui fouille le sol à la recherche de sa nourriture. Le Chromobotia macracanthus est grégaire, il vit en petit groupe de 6 individus minimum.'),
+	(6, 'A006', 'Platy spitz Sunset Wagtail', 4, 'Petit poisson d'eau douce mesurant entre 4 et 7cm adulte. Le mâle est plus petit que la femelle. Le Platy vit en harem, comptez 3 femelles pour un mâle. Les mâles cohabitent très bien ensemble mais le nombre de femelles doit être proportionnel.'),
+	(7, 'A007', 'Tétra de verre', 6, 'Le Prionobrama filigera est un petit poisson mesurant environ 6cm adulte. C'est un poisson de banc, celui-ci doit vivre en groupe de 10 individus minimum.'),
+	(8, 'A008', 'Tétra fantôme jaune à queue rose', 2, 'Le Hyphessobrycon roseus est un micro poisson mesurant environ 2cm adulte. C’est un poisson de banc, celui-ci doit vivre en groupe de 8 individus minimum.');
 
 Generer la config:
 

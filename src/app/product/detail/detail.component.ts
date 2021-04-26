@@ -14,9 +14,9 @@ export class DetailComponent implements OnInit {
 
   constructor(private route: ActivatedRoute, public service:ServiceService, public store:Store) { 
     this.ref = this.route.snapshot.paramMap.get('ref');
-    this.service.getAll().subscribe(e => {
+    /*this.service.getAll().subscribe(e => {
       this.poisson = e.find(i => i.ref === this.ref);
-    })
+    })*/
   }
 
   ref : string = "";
@@ -28,7 +28,12 @@ export class DetailComponent implements OnInit {
 
   async initialize() {
     this.ref = this.route.snapshot.paramMap.get('ref');
-    this.poisson = await this.service.getById(this.ref);
+
+    this.service.getById(this.ref).subscribe(e => this.poisson = e);
+    //console.log("INIT");
+    //console.log("REF : " + this.ref);
+    //console.log("RES GET BY ID : " + this.service.getById(this.ref));
+    
     
   }
 

@@ -1,11 +1,11 @@
 <?php
 use Doctrine\ORM\Mapping as ORM;
 /**
- * User
- * @ORM\Table(name="user")
+ * Users
+ * @ORM\Table(name="users")
  * @ORM\Entity
  */
-class User
+class Users
 {
     /**
      * @var int

@@ -8,7 +8,7 @@ import { Poisson } from '../../shared/models/poisson';
   providedIn: 'root'
 })
 export class ServiceService {
-  private urlGetAll = "http://localhost/api/catalogue";
+  private urlGetAll = "https://cnam-dagon-projet.herokuapp.com/api/catalogue";
 
   constructor(private http: HttpClient) { }
 
@@ -19,18 +19,14 @@ export class ServiceService {
     return this.http.get<Poisson[]>(this.urlGetAll, httpOptions);
   }
 
-  async getById(ref:string) : Promise<Poisson>{
-    
-    const all =  await this.getAll().toPromise();
-    const result = all.find((e) => e.id === ref);
+  getById(ref:string) : Observable<Poisson>{
+    let httpOptions = {
+      headers :  new HttpHeaders ({
+        'Content-Type':'application/json'})};
 
-    /*await this.getAll().forEach(e => e.forEach(p =>{
-      if(p.reference === ref){
-        poisson = p;
-        console.log(poisson);
-      }
-    }));*/
-    console.log(result);
-    return result;
+    var url = this.urlGetAll +"/"+ ref;
+    //console.log("URL : ");
+    //console.log(url);
+    return this.http.get<Poisson>(url, httpOptions);
   }
 }

@@ -10,7 +10,7 @@ import { ApiHttpInterceptor } from '../api-http.interceptor';
 export class HeaderComponent implements OnInit {
   nbElementPanier : number;
   connect: boolean;
-  constructor(private store:Store, private ht : ApiHttpInterceptor ){ }
+  constructor(private store:Store){ }
 
   ngOnInit(): void {
     this.store.select(state => state.panier.panier).subscribe(i=> this.nbElementPanier = i.length);
